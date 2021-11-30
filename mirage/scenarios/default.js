@@ -1,9 +1,21 @@
-export default function(/* server */) {
+export default function (server) {
+  server.createList('client', 10);
 
-  /*
-    Seed your development database using your factories.
-    This data will not be loaded in your tests.
-  */
+  server.create('client', { email: 'customer1@example.com' });
+  server.create('client', { email: 'customer2@example.com' });
+  server.create('client', { email: 'customer3@example.com' });
+  server.create('client', { email: 'customer3@example.com' });
+  server.create('client', { email: 'customer4@example.com' });
 
-  // server.createList('post', 10);
+  server.create('client', { mobile: '555551' });
+  server.create('client', { mobile: '555552' });
+  server.create('client', { mobile: '555553' });
+  server.create('client', { mobile: '555553' });
+  server.create('client', { mobile: '555554' });
+
+  server.create('client', { mobile: '555555' });
+  server.create('client', { mobile: '555555' });
+  server.create('client', { mobile: '555555' });
+  server.create('client', { mobile: '555555' });
+  server.create('client', { mobile: '555555' });
 }
