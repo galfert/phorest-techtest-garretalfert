@@ -18,8 +18,11 @@ module.exports = function (environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      apiHost: process.env.API_HOST,
+      basicAuthUsername: process.env.BASIC_AUTH_USERNAME,
+      basicAuthPassword: process.env.BASIC_AUTH_PASSWORD,
+      businessId: process.env.BUSINESS_ID,
+      branchId: process.env.BRANCH_ID,
     },
   };
 
