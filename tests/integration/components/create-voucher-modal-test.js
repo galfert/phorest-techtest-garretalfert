@@ -24,6 +24,26 @@ module('Integration | Component | create-voucher-modal', function (hooks) {
     assert.dom('.card-title').hasText('Voucher for Jane Doe');
   });
 
+  test('it requires to enter an amount', async function (assert) {
+    this.server.create('client');
+
+    const store = this.owner.lookup('service:store');
+    const client = await store.findRecord('client', 1);
+
+    this.set('data', { client, onSuccess: function () {} });
+    this.set('close', function() {});
+
+    await render(
+      hbs`<CreateVoucherModal @data={{this.data}} @close={{this.close}} />`
+    );
+
+    assert.dom('button[type=submit]').isDisabled();
+
+    await fillIn('#voucher-amount', '100');
+
+    assert.dom('button[type=submit]').isNotDisabled();
+  });
+
   test('it passes the created voucher to the given onSuccess action', async function (assert) {
     assert.expect(2);
 

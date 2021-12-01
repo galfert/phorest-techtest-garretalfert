@@ -3,11 +3,16 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import config from 'phorest-coupons/config/environment';
 import { inject as service } from '@ember/service';
+import { isEmpty } from '@ember/utils';
 
 export default class CreateVoucherModalComponent extends Component {
   @service store;
 
   @tracked amount;
+
+  get submissionDisabled() {
+    return isEmpty(this.amount);
+  }
 
   @action
   createVoucher(event) {
