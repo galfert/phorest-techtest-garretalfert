@@ -1,4 +1,5 @@
 import config from 'phorest-coupons/config/environment';
+import faker from 'faker';
 
 export default function () {
   this.urlPrefix = config.APP.apiHost;
@@ -20,5 +21,21 @@ export default function () {
     const id = request.params.id;
 
     return schema.clients.find(id);
+  });
+
+  this.get('/voucher/:id', (schema, request) => {
+    const id = request.params.id;
+
+    return schema.vouchers.find(id);
+  });
+
+  this.post('/voucher', async (schema, request) => {
+    const vouchers = await schema.vouchers.all();
+    const voucher = schema.vouchers.new(JSON.parse(request.requestBody));
+    voucher.remainingBalance = voucher.originalBalance;
+    voucher.serialNumber = faker.datatype.number(1000, 100000).toString();
+    voucher.voucherId = vouchers.length + 1;
+
+    return voucher.save();
   });
 }

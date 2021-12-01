@@ -18,4 +18,6 @@ export default function (server) {
   server.create('client', { mobile: '555555' });
   server.create('client', { mobile: '555555' });
   server.create('client', { mobile: '555555' });
+
+  server.createList('voucher', 10);
 }
