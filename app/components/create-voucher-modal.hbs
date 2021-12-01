@@ -1,0 +1,32 @@
+<div class="card shadow-2xl lg:card-side bg-primary text-primary-content">
+  <div class="card-body">
+
+    {{#if @close}}
+      <div class="justify-end card-actions">
+        <button class="btn btn-secondary btn-square" type="button" {{on "click" @close}}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    {{/if}}
+
+    <h2 class="card-title">Voucher for {{@data.client.fullName}}</h2>
+
+    <form class="form-control" {{on "submit" this.createVoucher}}>
+      <div class="flex-col justify-center card-actions">
+        <label for="voucher-amount" class="label">
+          <span class="label-text text-primary-content">Amount</span>
+        </label>
+
+        <Input id="voucher-amount" @value={{this.amount}} placeholder="50.00"
+          class="input input-accent input-bordered text-neutral" />
+      </div>
+
+      <div class="justify-end card-actions">
+        <button type="submit" class="btn btn-accent">Create Voucher</button>
+      </div>
+    </form>
+
+  </div>
+</div>
