@@ -23,8 +23,10 @@
           class="input input-accent input-bordered text-neutral" />
       </div>
 
-      <div class="justify-end card-actions">
-        <button type="submit" class="btn btn-accent">Create Voucher</button>
+      <div class="justify-center card-actions {{if this.submissionDisabled "tooltip tooltip-bottom"}}"
+        data-tip="Please specify the amount">
+        <button type="submit" class="btn btn-accent"
+          disabled={{this.submissionDisabled}}>Create Voucher</button>
       </div>
     </form>
 
