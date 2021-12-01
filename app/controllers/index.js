@@ -9,4 +9,9 @@ export default class IndexController extends Controller {
   updateClients(clients) {
     this.clients = clients;
   }
+
+  @action
+  showVoucherModal(client) {
+    console.log('about to create a voucher for', client.fullName);
+  }
 }

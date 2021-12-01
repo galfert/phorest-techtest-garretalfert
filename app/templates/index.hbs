@@ -1,3 +1,5 @@
 {{page-title "Vouchers"}}
 
 <ClientSearch @onSuccess={{this.updateClients}} />
+
+<ClientSelector @clients={{this.clients}} @onSelect={{this.showVoucherModal}} />
