@@ -34,8 +34,8 @@
             <td>{{client.email}}</td>
             <td class="break-normal">{{client.notes}}</td>
             <td>
-              <button class="btn btn-ghost btn-xs" type="button"
-                {{on "click" (fn @onSelect client)}}>Voucher</button>
+              <button class="btn btn-outline btn-primary btn-xs" type="button"
+                {{on "click" (fn @onSelect client)}}>New Voucher</button>
             </td>
           </tr>
         {{/each}}
