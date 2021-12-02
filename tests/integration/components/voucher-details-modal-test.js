@@ -35,4 +35,39 @@ module('Integration | Component | voucher-details-modal', function (hooks) {
     assert.dom('[data-test-expiry]').hasText(expiryDate.toLocaleDateString());
     assert.dom('[data-test-progress] progress').hasAttribute('value', '100');
   });
+
+  test('it shows a close button and the voucher url when used in a modal', async function (assert) {
+    this.server.create('client');
+    this.server.create('voucher');
+
+    const store = this.owner.lookup('service:store');
+    const client = await store.findRecord('client', 1);
+    const voucher = await store.findRecord('voucher', 1);
+
+    this.set('data', { client, voucher });
+    this.set('close', function () {});
+
+    await render(
+      hbs`<VoucherDetailsModal @data={{this.data}} @close={{this.close}} />`
+    );
+
+    assert.dom('[data-test-close]').exists();
+    assert.dom('[data-test-url]').exists();
+  });
+
+  test('it does not show close button or voucher url when not used in a modal', async function (assert) {
+    this.server.create('client');
+    this.server.create('voucher');
+
+    const store = this.owner.lookup('service:store');
+    const client = await store.findRecord('client', 1);
+    const voucher = await store.findRecord('voucher', 1);
+
+    this.set('data', { client, voucher });
+
+    await render(hbs`<VoucherDetailsModal @data={{this.data}} />`);
+
+    assert.dom('[data-test-close]').doesNotExist();
+    assert.dom('[data-test-url]').doesNotExist();
+  });
 });
