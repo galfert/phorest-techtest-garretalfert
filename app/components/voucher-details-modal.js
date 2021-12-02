@@ -19,15 +19,21 @@ export default class VoucherDetailsModalComponent extends Component {
 
   get voucherUrl() {
     const voucherId = this.args.data.voucher.voucherId;
-    return `${location.origin}${this.router.urlFor('vouchers.show', voucherId)}`;
+    return `${location.origin}${this.router.urlFor(
+      'vouchers.show',
+      voucherId
+    )}`;
   }
 
   @action
   copyUrl() {
-    navigator.clipboard.writeText(this.voucherUrl).then(function () {
-      console.log('copy that');
-    }, function () {
-      console.error('could not copy to clipboard');
-    });
+    navigator.clipboard.writeText(this.voucherUrl).then(
+      function () {
+        console.log('copy that');
+      },
+      function () {
+        console.error('could not copy to clipboard');
+      }
+    );
   }
 }

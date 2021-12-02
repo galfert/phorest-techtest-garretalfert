@@ -53,7 +53,7 @@
           <span class="font-mono mr-5">
             <LinkTo @route="vouchers.show" @model={{@data.voucher.voucherId}} class="link link-primary">{{this.voucherUrl}}</LinkTo>
           </span>
-          <button class="btn btn-ghost" {{on "click" this.copyUrl}}>Copy to clipboard</button>
+          <button class="btn btn-ghost" type="button" {{on "click" this.copyUrl}}>Copy to clipboard</button>
         </div>
       </div>
     {{/if}}

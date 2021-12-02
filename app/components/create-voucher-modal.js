@@ -26,15 +26,18 @@ export default class CreateVoucherModalComponent extends Component {
       creatingBranchId: config.APP.branchId,
       originalBalance: this.amount,
       issueDate: new Date(),
-      expiryDate: new Date(`${currentYear+1}-12-31`), // end of next year
+      expiryDate: new Date(`${currentYear + 1}-12-31`), // end of next year
     });
 
-    voucher.save().then(() => {
-      this.args.close();
-      this.args.data.onSuccess(voucher, this.args.data.client);
-    }).catch((error) => {
-      // TODO improve error handling, inform user
-      console.error('Could not create voucher', error);
-    });
+    voucher
+      .save()
+      .then(() => {
+        this.args.close();
+        this.args.data.onSuccess(voucher, this.args.data.client);
+      })
+      .catch((error) => {
+        // TODO improve error handling, inform user
+        console.error('Could not create voucher', error);
+      });
   }
 }
