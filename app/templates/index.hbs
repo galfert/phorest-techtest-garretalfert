@@ -1,5 +1,13 @@
 {{page-title "Vouchers"}}
 
+<div class="navbar mb-2 shadow-lg bg-primary text-neutral-content rounded-box">
+  <div class="flex-1 px-2 mx-2">
+    <span class="text-lg font-bold">
+      Vouchers
+    </span>
+  </div>
+</div>
+
 <ClientSearch @onSuccess={{this.updateClients}} />
 
 <ClientSelector @clients={{this.clients}} @onSelect={{this.showVoucherModal}} />
