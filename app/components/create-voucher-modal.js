@@ -9,6 +9,7 @@ export default class CreateVoucherModalComponent extends Component {
   @service store;
 
   @tracked amount;
+  @tracked loading;
 
   get submissionDisabled() {
     return isEmpty(this.amount);
@@ -17,6 +18,8 @@ export default class CreateVoucherModalComponent extends Component {
   @action
   createVoucher(event) {
     event.preventDefault();
+
+    this.loading = true;
 
     // TODO make expiryDate configurable
     const currentYear = new Date().getFullYear();
@@ -34,10 +37,12 @@ export default class CreateVoucherModalComponent extends Component {
       .then(() => {
         this.args.close();
         this.args.data.onSuccess(voucher, this.args.data.client);
+        this.loading = false;
       })
       .catch((error) => {
         // TODO improve error handling, inform user
         console.error('Could not create voucher', error);
+        this.loading = false;
       });
   }
 }
