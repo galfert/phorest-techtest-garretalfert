@@ -21,8 +21,8 @@ export default class IndexController extends Controller {
     });
   }
 
-  action;
-  showVoucherDetails(voucher) {
-    console.log('show voucher details', voucher);
+  @action
+  showVoucherDetails(voucher, client) {
+    return this.modals.open('voucher-details-modal', { voucher, client });
   }
 }

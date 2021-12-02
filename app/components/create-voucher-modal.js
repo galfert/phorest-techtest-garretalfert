@@ -31,7 +31,7 @@ export default class CreateVoucherModalComponent extends Component {
 
     voucher.save().then(() => {
       this.args.close();
-      this.args.data.onSuccess(voucher);
+      this.args.data.onSuccess(voucher, this.args.data.client);
     }).catch((error) => {
       // TODO improve error handling, inform user
       console.error('Could not create voucher', error);

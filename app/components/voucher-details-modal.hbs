@@ -1,0 +1,50 @@
+<div class="card shadow-2xl lg:card-side bg-primary text-primary-content">
+  <div class="card-body">
+
+    {{#if @close}}
+      <div class="justify-end card-actions">
+        <button class="btn btn-secondary btn-square" type="button" {{on "click" @close}}>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+    {{/if}}
+
+    <div class="w-full shadow stats">
+      <div class="stat place-items-center place-content-center">
+        <div class="stat-title">Client</div>
+        <div class="stat-value text-primary" data-test-client>{{@data.client.fullName}}</div>
+      </div>
+    </div>
+
+    <div class="w-full mt-2 shadow stats">
+      <div class="stat place-items-center place-content-center">
+        <div class="stat-title">Serial Number</div>
+        <div class="stat-value text-primary" data-test-serial>{{@data.voucher.serialNumber}}</div>
+      </div>
+      <div class="stat place-items-center place-content-center">
+        <div class="stat-title">Issue Date</div>
+        <div class="stat-value text-primary" data-test-issue>{{this.formattedIssueDate}}</div>
+      </div>
+      <div class="stat place-items-center place-content-center">
+        <div class="stat-title">Expiry Date</div>
+        <div class="stat-value text-primary" data-test-expiry>{{this.formattedExpiryDate}}</div>
+      </div>
+    </div>
+
+    <div class="w-full mt-2 border stats border-base-300">
+      <div class="stat">
+        <div class="stat-title">Balance</div>
+        <div class="stat-value text-primary" data-test-balance>
+          {{@data.voucher.remainingBalance}} of
+          {{@data.voucher.originalBalance}}
+        </div>
+        <div class="stat-desc" data-test-progress>
+          <progress value={{this.balanceProgress}} max="100" class="progress progress-secondary"></progress>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
