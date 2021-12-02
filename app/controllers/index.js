@@ -23,6 +23,10 @@ export default class IndexController extends Controller {
 
   @action
   showVoucherDetails(voucher, client) {
-    return this.modals.open('voucher-details-modal', { voucher, client });
+    return this.modals
+      .open('voucher-details-modal', { voucher, client })
+      .then(() => {
+        this.clients = null;
+      });
   }
 }

@@ -1,6 +1,6 @@
 {{#if @clients}}
   <div class="overflow-x-auto">
-    <table class="table w-full">
+    <table class="table w-full" data-test-client-list>
       <thead>
         <tr>
           <th>Name</th>
@@ -32,12 +32,12 @@
                 </div>
               </div>
             </td>
-            <td>{{client.mobile}}</td>
-            <td>{{client.email}}</td>
+            <td data-test-phone>{{client.mobile}}</td>
+            <td data-test-email>{{client.email}}</td>
             <td class="break-normal">{{client.notes}}</td>
             <td>
               <button class="btn btn-outline btn-primary btn-xs" type="button"
-                {{on "click" (fn @onSelect client)}}>New Voucher</button>
+                {{on "click" (fn @onSelect client)}} data-test-new-voucher>New Voucher</button>
             </td>
           </tr>
         {{/each}}
