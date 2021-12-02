@@ -37,8 +37,8 @@
       <div class="stat">
         <div class="stat-title">Balance</div>
         <div class="stat-value text-primary" data-test-balance>
-          {{@data.voucher.remainingBalance}} of
-          {{@data.voucher.originalBalance}}
+          {{currency @data.voucher.remainingBalance}} of
+          {{currency @data.voucher.originalBalance}}
         </div>
         <div class="stat-desc" data-test-progress>
           <progress value={{this.balanceProgress}} max="100" class="progress progress-secondary"></progress>

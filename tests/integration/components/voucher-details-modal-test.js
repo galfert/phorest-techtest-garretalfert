@@ -29,8 +29,7 @@ module('Integration | Component | voucher-details-modal', function (hooks) {
     await render(hbs`<VoucherDetailsModal @data={{this.data}} />`);
 
     assert.dom('[data-test-client]').hasText('Jane Doe');
-    assert.dom('[data-test-balance]').hasText('100 of 100');
-    assert.dom('[data-test-balance]').hasText('100 of 100');
+    assert.dom('[data-test-balance]').hasText('100.00 € of 100.00 €');
     assert.dom('[data-test-issue]').hasText(issueDate.toLocaleDateString());
     assert.dom('[data-test-expiry]').hasText(expiryDate.toLocaleDateString());
     assert.dom('[data-test-progress] progress').hasAttribute('value', '100');

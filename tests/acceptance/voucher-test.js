@@ -33,7 +33,7 @@ module('Acceptance | voucher', function (hooks) {
     await click('button[data-test-create-voucher]');
 
     assert.dom('[data-test-client]').hasText('Siobhan Mc Carthy');
-    assert.dom('[data-test-balance]').hasText('42 of 42');
+    assert.dom('[data-test-balance]').hasText('42.00 € of 42.00 €');
 
     await click('button[data-test-close]');
 
@@ -46,13 +46,13 @@ module('Acceptance | voucher', function (hooks) {
     this.server.create('voucher', {
       clientId: '1',
       originalBalance: '55',
-      remainingBalance: '12',
+      remainingBalance: '12.20',
     });
 
     await visit('/vouchers/1');
 
     assert.dom('[data-test-client]').hasText('Siobhan Mc Carthy');
-    assert.dom('[data-test-balance]').hasText('12 of 55');
+    assert.dom('[data-test-balance]').hasText('12.20 € of 55.00 €');
     assert.dom('button[data-test-close]').doesNotExist();
   });
 
