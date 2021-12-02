@@ -14,14 +14,14 @@
     <div class="w-full shadow stats">
       <div class="stat place-items-center place-content-center">
         <div class="stat-title">Client</div>
-        <div class="stat-value text-primary" data-test-client>{{@data.client.fullName}}</div>
+        <div class="stat-value text-primary" data-test-client>{{this.client.fullName}}</div>
       </div>
     </div>
 
     <div class="w-full mt-2 shadow stats">
       <div class="stat place-items-center place-content-center">
         <div class="stat-title">Serial Number</div>
-        <div class="stat-value text-primary" data-test-serial>{{@data.voucher.serialNumber}}</div>
+        <div class="stat-value text-primary" data-test-serial>{{this.voucher.serialNumber}}</div>
       </div>
       <div class="stat place-items-center place-content-center">
         <div class="stat-title">Issue Date</div>
@@ -37,8 +37,8 @@
       <div class="stat">
         <div class="stat-title">Balance</div>
         <div class="stat-value text-primary" data-test-balance>
-          {{currency @data.voucher.remainingBalance}} of
-          {{currency @data.voucher.originalBalance}}
+          {{currency this.voucher.remainingBalance}} of
+          {{currency this.voucher.originalBalance}}
         </div>
         <div class="stat-desc" data-test-progress>
           <progress value={{this.balanceProgress}} max="100" class="progress progress-secondary"></progress>
@@ -51,7 +51,7 @@
         <div class="flex-1 place-items-center">
           <span class="mr-5">URL to Voucher:</span>
           <span class="font-mono mr-5">
-            <LinkTo @route="vouchers.show" @model={{@data.voucher.voucherId}} class="link link-primary">{{this.voucherUrl}}</LinkTo>
+            <LinkTo @route="vouchers.show" @model={{this.voucher.voucherId}} class="link link-primary">{{this.voucherUrl}}</LinkTo>
           </span>
           <button class="btn btn-ghost" type="button" {{on "click" this.copyUrl}}>Copy to clipboard</button>
         </div>

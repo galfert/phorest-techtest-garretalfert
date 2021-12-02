@@ -5,20 +5,31 @@ import { action } from '@ember/object';
 export default class VoucherDetailsModalComponent extends Component {
   @service router;
 
+  get voucher() {
+    return this.args.data.voucher;
+  }
+
+  get client() {
+    return this.args.data.client;
+  }
+
   get formattedIssueDate() {
-    return this.args.data.voucher.issueDate.toLocaleDateString();
+    return this.voucher.issueDate.toLocaleDateString();
   }
 
   get formattedExpiryDate() {
-    return this.args.data.voucher.expiryDate.toLocaleDateString();
+    return this.voucher.expiryDate.toLocaleDateString();
   }
 
   get balanceProgress() {
-    return 100; // TODO calculate actual remaining balance percentage
+    const percentage =
+      (this.voucher.remainingBalance / this.voucher.originalBalance) * 100;
+
+    return Math.round(percentage);
   }
 
   get voucherUrl() {
-    const voucherId = this.args.data.voucher.voucherId;
+    const voucherId = this.voucher.voucherId;
     return `${location.origin}${this.router.urlFor(
       'vouchers.show',
       voucherId
