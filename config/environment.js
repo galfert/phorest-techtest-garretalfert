@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   let ENV = {
-    modulePrefix: 'phorest-coupons',
+    modulePrefix: 'phorest-vouchers',
     environment,
     rootURL: '/',
     locationType: 'auto',

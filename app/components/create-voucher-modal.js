@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import config from 'phorest-coupons/config/environment';
+import config from 'phorest-vouchers/config/environment';
 import { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
 

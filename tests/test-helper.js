@@ -1,5 +1,5 @@
-import Application from 'phorest-coupons/app';
-import config from 'phorest-coupons/config/environment';
+import Application from 'phorest-vouchers/app';
+import config from 'phorest-vouchers/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';

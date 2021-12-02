@@ -1,4 +1,4 @@
-import config from 'phorest-coupons/config/environment';
+import config from 'phorest-vouchers/config/environment';
 import faker from 'faker';
 
 export default function () {

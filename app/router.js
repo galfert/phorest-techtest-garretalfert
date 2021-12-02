@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from 'phorest-coupons/config/environment';
+import config from 'phorest-vouchers/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
