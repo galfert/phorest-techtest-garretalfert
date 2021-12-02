@@ -15,9 +15,11 @@ module('Integration | Component | create-voucher-modal', function (hooks) {
     const client = await store.findRecord('client', 1);
 
     this.set('data', { client, onSuccess: function () {} });
-    this.set('close', function() {});
+    this.set('close', function () {});
 
-    await render(hbs`<CreateVoucherModal @data={{this.data}} @close={{this.close}} />`);
+    await render(
+      hbs`<CreateVoucherModal @data={{this.data}} @close={{this.close}} />`
+    );
 
     assert.dom('.card-title').hasText('Voucher for Jane Doe');
   });
@@ -38,7 +40,9 @@ module('Integration | Component | create-voucher-modal', function (hooks) {
     this.set('data', { client, onSuccess: createHandler });
     this.set('close', function() {});
 
-    await render(hbs`<CreateVoucherModal @data={{this.data}} @close={{this.close}} />`);
+    await render(
+      hbs`<CreateVoucherModal @data={{this.data}} @close={{this.close}} />`
+    );
 
     await fillIn('#voucher-amount', '100');
     await click('button[type=submit]');
