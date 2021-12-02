@@ -17,7 +17,7 @@ module('Integration | Component | client-selector', function (hooks) {
   });
 
   test('it shows a list of clients', async function (assert) {
-    this.server.create('client', { mobile: '555 1337' });
+    this.server.create('client', { mobile: '555 1337', photoUrl: null });
     this.server.create('client', { email: 'foo@example.com' });
 
     const store = this.owner.lookup('service:store');
@@ -31,6 +31,8 @@ module('Integration | Component | client-selector', function (hooks) {
     );
 
     assert.dom('tbody tr').exists({ count: 2 });
+    assert.dom('tbody tr:first-child .avatar img').doesNotExist();
+    assert.dom('tbody tr:last-child .avatar img').exists();
   });
 
   test('it passes the selected client to the onSelect action', async function (assert) {
